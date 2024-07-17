@@ -102,5 +102,3 @@ For any questions or feedback, please reach out to B A Adarsh at [adarsh.bhaskar
 ---
 
 ⭐️ If you find this project interesting or useful, please consider giving it a star!
-
-```
