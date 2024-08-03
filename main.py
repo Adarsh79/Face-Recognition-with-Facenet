@@ -25,6 +25,9 @@ model = pickle.load(open("face-recognition-model.pkl", 'rb'))
 
 cap = cv.VideoCapture(0)
 
+cap.set(cv.CAP_PROP_FRAME_WIDTH, 1920)
+cap.set(cv.CAP_PROP_FRAME_HEIGHT, 1080)
+
 while cap.isOpened():
     _, frame = cap.read()
     rgb_img = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
@@ -37,8 +40,8 @@ while cap.isOpened():
         ypred = facenet.embeddings(img)
         face_name = model.predict(ypred)
         final_name = encoder.inverse_transform(face_name)[0]
-        cv.rectangle(frame, (x, y), (x + w,y + h), (255, 0, 255), 10)
-        cv.putText(frame, str(final_name), (x, y - 10), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 3, cv.LINE_AA)
+        cv.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
+        cv.putText(frame, str(final_name), (x, y - 10), cv.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv.LINE_AA)
 
     cv.imshow("Face Recognition:", frame)
     if cv.waitKey(1) & ord('q') == 27:
