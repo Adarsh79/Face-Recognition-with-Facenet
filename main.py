@@ -25,8 +25,8 @@ model = pickle.load(open("face-recognition-model.pkl", 'rb'))
 
 cap = cv.VideoCapture(0)
 
-cap.set(cv.CAP_PROP_FRAME_WIDTH, 1920)
-cap.set(cv.CAP_PROP_FRAME_HEIGHT, 1080)
+cap.set(cv.CAP_PROP_FRAME_WIDTH, 1080)
+cap.set(cv.CAP_PROP_FRAME_HEIGHT, 720)
 
 while cap.isOpened():
     _, frame = cap.read()
